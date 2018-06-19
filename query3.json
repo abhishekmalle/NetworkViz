@@ -1,0 +1,16 @@
+[
+{
+    "source": "title",
+    "target": "title",
+    "joinBy": [
+    {
+        "attr": "original_language",
+        "conditionType": "categorical",
+        "value": []
+    },
+    {
+        "attr": "vote_average",
+        "conditionType": "categorical",
+        "value": []
+    }]
+}]
