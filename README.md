@@ -7,7 +7,7 @@ with open("query3.json") as f:
 
 to
 
-with open("<filename>") as f:
+with open("filename") as f:
 
 to load your wanted query.
 
