@@ -1,16 +1,16 @@
 [
 {
-    "source": "title",
-    "target": "title",
+    "source": "movie_title",
+    "target": "movie_title",
     "joinBy": [
     {
-        "attr": "original_language",
+        "attr": "actor_1_name",
         "conditionType": "categorical",
-        "value": []
+        "value": ["Aidan Turner"]
     },
     {
-        "attr": "vote_average",
+        "attr": "country",
         "conditionType": "categorical",
-        "value": []
+        "value": ["Australia"]
     }]
 }]

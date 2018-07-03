@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import mod
 
 
-with open("query3.json") as f:
+with open("query1.json") as f:
     query = json.load(f)
     G = mod.parse(query)
     nx.draw(G, with_labels=True)

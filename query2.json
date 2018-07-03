@@ -1,20 +1,20 @@
 [
 {
-    "source": "title",
-    "target": "title",
+    "source": "director_name",
+    "target": "director_name",
     "joinBy": [
     {
-        "attr": "original_language",
+        "attr": "country",
         "conditionType": "categorical",
-        "value": []
+        "value": ["UK"]
     }]
 },
 {
-    "source": "title",
-    "target": "title",
+    "source": "actor_1_name",
+    "target": "director_name",
     "joinBy": [
     {
-        "attr": "vote_average",
+        "attr": "movie_title",
         "conditionType": "categorical",
         "value": []
     }]
