@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 """
 Created on Mon Jun 25 23:07:05 2018
 
@@ -41,7 +41,10 @@ def join1(source, target, joinBy):
         if i==0:
             G = nx.compose_all(graphs)
         else:
-            G = nx.intersection(G,nx.compose_all(graphs))
+            temp = nx.compose_all(graphs)
+            G.add_nodes_from(temp.nodes)
+            temp.add_nodes_from(G.nodes)
+            G = nx.intersection(G,temp)
 
     return G
 

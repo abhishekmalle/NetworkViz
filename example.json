@@ -1,0 +1,53 @@
+[
+{
+    "source": "movie_title",
+    "target": "movie_title",
+    "joinBy": [
+    {
+        "attr": "actor_1_name",
+        "conditionType": "categorical",
+        "value": []
+    },
+    {
+        "attr": "country",
+        "conditionType": "categorical",
+        "value": ["Australia"]
+    }]
+}]
+-------------------
+[
+{
+    "source": "actor_1_name",
+    "target": "director_name",
+    "joinBy": [
+    {
+        "attr": "",
+        "conditionType": "",
+        "value": []
+    }]
+}]
+------------------
+[
+{
+    "source": "actor_1_name",
+    "target": "director_name",
+    "joinBy": [
+    {
+        "attr": "",
+        "conditionType": "",
+        "value": []
+    }]
+},{
+    "source": "director_name",
+    "target": "director_name",
+    "joinBy": [
+    {
+        "attr": "genre",
+        "conditionType": "",
+        "value": []
+    }]
+}
+]
+
+
+

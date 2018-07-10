@@ -4,13 +4,13 @@
     "target": "director_name",
     "joinBy": [
     {
-        "attr": "country",
-        "conditionType": "categorical",
-        "value": ["UK"]
+        "attr": "budget",
+        "conditionType": "numeric", //split range into quartiles (low,med,high)
+        "value": []
     }]
 },
 {
-    "source": "actor_1_name",
+    "source": "director_name",
     "target": "director_name",
     "joinBy": [
     {
