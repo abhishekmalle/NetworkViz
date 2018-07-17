@@ -1,11 +1,11 @@
 [
 {
     "source": "actor_1_name",
-    "target": "actor_1_name",
+    "target": "director_name",
     "joinBy": [
     {
-        "attr": "director_name",
-        "conditionType": "categorical",
-        "value": ["Steven Spiel", "someone_else"]
+        "attr": "",
+        "conditionType": "",
+        "value": []
     }]
 }]

@@ -2,8 +2,7 @@ import sqlite3
 import pandas as pd
 import networkx as nx
 
-from join import join1,join2
-
+from join_v2 import join
 
 def load(fileName='testFile.csv', dbName='data.db'):
     conn = sqlite3.connect(dbName)
@@ -22,7 +21,7 @@ def parse(query):
     G = nx.Graph()
 
     for orClause in query:
-        G = nx.compose(G,join2(orClause['source'],
+        G = nx.compose(G,join(orClause['source'],
                               orClause['target'],
                               orClause['joinBy']))
 
