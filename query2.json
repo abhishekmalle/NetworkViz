@@ -1,21 +1,16 @@
 [
 {
-    "source": "director_name",
-    "target": "director_name",
+    "source": "movie_title",
+    "target": "movie_title",
     "joinBy": [
     {
-        "attr": "budget",
-        "conditionType": "numeric", //split range into quartiles (low,med,high)
-        "value": []
-    }]
-},
-{
-    "source": "director_name",
-    "target": "director_name",
-    "joinBy": [
-    {
-        "attr": "movie_title",
+        "attr": "actor_1_name",
         "conditionType": "categorical",
         "value": []
+    },
+    {
+        "attr": "country",
+        "conditionType": "categorical",
+        "value": ["Australia"]
     }]
 }]

@@ -25,12 +25,4 @@ def join(source, target, joinBy):
         temp.add_edges_from(pairs)
         graphs.append(temp)
 
-        if i==0:
-            G = nx.compose_all(graphs)
-        else:
-            temp = nx.compose_all(graphs)
-            G.add_nodes_from(temp.nodes)
-            temp.add_nodes_from(G.nodes)
-            G = nx.intersection(G,temp)
-
-    return graphs[0]
+    return nx.compose_all(graphs)

@@ -1,0 +1,21 @@
+[
+{
+    "source": "actor_1_name",
+    "target": "director_name",
+    "joinBy": [
+    {
+        "attr": "",
+        "conditionType": "",
+        "value": []
+    }]
+},{
+    "source": "director_name",
+    "target": "director_name",
+    "joinBy": [
+    {
+        "attr": "genre",
+        "conditionType": "",
+        "value": []
+    }]
+}
+]
