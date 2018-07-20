@@ -19,10 +19,19 @@ def join(source, target, joinBy):
     graphs = []
     G = nx.Graph()
 
-    for i in range(len(joinBy)):
-        pairs = list(cur.execute(f'SELECT {source}, {target} from T'))
-        temp = nx.Graph()
-        temp.add_edges_from(pairs)
-        graphs.append(temp)
+    if source==target:
+        #complete network things
+
+
+
+    else:
+        for i in range(len(joinBy)):
+            if joinBy[i]['attr']=="":
+                pairs = list(cur.execute(f'SELECT {source}, {target} from T'))
+            else:
+                pairs = list(cur.execute(f'SELECT {source}, {target} from T'))
+            temp = nx.Graph()
+            temp.add_edges_from(pairs)
+            graphs.append(temp)
 
     return nx.compose_all(graphs)

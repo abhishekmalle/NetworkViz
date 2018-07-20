@@ -1,16 +1,21 @@
 [
 {
-    "source": "movie_title",
-    "target": "movie_title",
+    "source": "actor_1_name",
+    "target": "director_name",
     "joinBy": [
     {
-        "attr": "actor_1_name",
-        "conditionType": "categorical",
+        "attr": "",
+        "conditionType": "",
         "value": []
-    },
-    {
-        "attr": "country",
-        "conditionType": "categorical",
-        "value": ["Australia"]
     }]
-}]
+},{
+    "source": "director_name",
+    "target": "director_name",
+    "joinBy": [
+    {
+        "attr": "genre",
+        "conditionType": "",
+        "value": []
+    }]
+}
+]
