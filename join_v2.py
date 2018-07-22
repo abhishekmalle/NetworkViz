@@ -16,22 +16,70 @@ def join(source, target, joinBy):
 
     conn = sqlite3.connect('data.db')
     cur = conn.cursor()
-    graphs = []
-    G = nx.Graph()
+    intersectGraphs = []
 
     if source==target:
-        #complete network things
+        for i in range(len(joinBy)): # "and" conditions (intersections)
+            # assumes that there has to be an "attr"
+            composeGraphs = []
+            if joinBy[i]['value']==[]:
+                a = list(cur.execute(f'''
+                             SELECT GROUP_CONCAT({source}), {joinBy[i]["attr"]}
+                             FROM T
+                             GROUP BY {joinBy[i]["attr"]}
+                             '''))
+                for tup in a:
+                    nodes = [x.strip() for x in tup[0].split(',')]
+                    composeGraphs.append(nx.complete_graph(nodes))
 
+            else:
+                li = joinBy[i]['value']
+                for val in li:
+                    a = list(cur.execute(f'''
+                                     SELECT GROUP_CONCAT({source}), {joinBy[i]["attr"]}
+                                     FROM T
+                                     WHERE {joinBy[i]["attr"]}=?
+                                     GROUP BY {joinBy[i]["attr"]}
+                                     ''', [val]))
+#                    a = list(cur.execute(f'''
+#                                     SELECT GROUP_CONCAT(movie_title), country
+#                                     FROM T
+#                                     WHERE country="USA"
+#                                     GROUP BY country
+#                                     '''))
 
+                    nodes = [x.strip() for x in a[0][0].split(',')]
+                    composeGraphs.append(nx.complete_graph(nodes))
+
+            # adding a graph from a single joinBy condition
+            intersectGraphs.append(nx.compose_all(composeGraphs))
 
     else:
         for i in range(len(joinBy)):
-            if joinBy[i]['attr']=="":
+            if joinBy[i]['attr']=='':
                 pairs = list(cur.execute(f'SELECT {source}, {target} from T'))
             else:
-                pairs = list(cur.execute(f'SELECT {source}, {target} from T'))
+                if joinBy[i]['value']==[]:
+                    li = list(cur.execute(f'''
+                                      SELECT DISTINCT {joinBy[i]["attr"]}
+                                      FROM T
+                                      '''))
+                else:
+                    li = joinBy[i]['value']
+
+                for val in li:
+                    pairs = list(cur.execute(f'''
+                                             SELECT {source}, {target}
+                                             FROM T
+                                             WHERE {joinBy[i]["attr"]}=?
+                                             ''', [val]))
             temp = nx.Graph()
             temp.add_edges_from(pairs)
-            graphs.append(temp)
+            intersectGraphs.append(temp)
 
-    return nx.compose_all(graphs)
+    for i in range(len(intersectGraphs)):
+        if i>0:
+            intersectGraphs[i].add_nodes_from(intersectGraphs[i-1])
+    G = nx.intersection_all(intersectGraphs)
+    G.remove_nodes_from(list(nx.isolates(G)))
+    return G

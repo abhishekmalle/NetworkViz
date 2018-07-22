@@ -13,7 +13,7 @@
     "target": "director_name",
     "joinBy": [
     {
-        "attr": "genre",
+        "attr": "country",
         "conditionType": "",
         "value": []
     }]

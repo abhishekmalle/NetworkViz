@@ -4,13 +4,13 @@
     "target": "movie_title",
     "joinBy": [
     {
-        "attr": "actor_1_name",
+        "attr": "director_name",
         "conditionType": "categorical",
         "value": []
     },
     {
         "attr": "country",
         "conditionType": "categorical",
-        "value": ["Australia"]
+        "value": ["UK"]
     }]
 }]
