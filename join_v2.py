@@ -41,12 +41,6 @@ def join(source, target, joinBy):
                                      WHERE {joinBy[i]["attr"]}=?
                                      GROUP BY {joinBy[i]["attr"]}
                                      ''', [val]))
-#                    a = list(cur.execute(f'''
-#                                     SELECT GROUP_CONCAT(movie_title), country
-#                                     FROM T
-#                                     WHERE country="USA"
-#                                     GROUP BY country
-#                                     '''))
 
                     nodes = [x.strip() for x in a[0][0].split(',')]
                     composeGraphs.append(nx.complete_graph(nodes))

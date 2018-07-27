@@ -10,4 +10,6 @@ with open("query1.json") as f:
     G = mod.parse(query)
     nx.draw(G, with_labels=True)
     plt.show()
+    x = nx.node_link_data(G)
+    print(x['nodes'])
     print('done')

@@ -1,3 +1,0 @@
-When the clause is categorical, will the source and target always be the same?
-
-Need datasets to test it on.
