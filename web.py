@@ -9,11 +9,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def my_form():
-    return render_template('website.html')
+    return render_template('index.html')
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    query = json.loads(request.form['text'])
+    query = json.loads(request.form['query'])
     G = mod.parse(query)
-    print(nx.node_link_data(G))
     return json.dumps(nx.node_link_data(G))
