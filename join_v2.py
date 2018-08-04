@@ -68,6 +68,9 @@ def join(source, target, joinBy):
                                              WHERE {joinBy[i]["attr"]}=?
                                              ''', [val]))
             temp = nx.Graph()
+            for p in pairs:
+                temp.add_node(p[0], type=source, color="blue")
+                temp.add_node(p[1], type=target, color="red")
             temp.add_edges_from(pairs)
             intersectGraphs.append(temp)
 

@@ -13,8 +13,25 @@ app = Flask(__name__)
 @app.route('/',methods=['GET','POST'])
 @cross_origin()
 def func():
-    # query = json.loads(request.form['query'])
-    # G = mod.parse(query)
-    # return json.dumps(nx.node_link_data(G))
-    pprint(request.data)
-    return '{"ADSF":"FDS"}'
+
+    if request.method=='GET':
+        return 'This is the GET response - use the POST function.'
+    else:
+        try:
+            query = json.loads(request.data)
+            G = mod.parse(query)
+        except:
+            return '{"response":"bad query"}'
+
+        newG = nx.convert_node_labels_to_integers(G,label_attribute='label')
+        temp = nx.node_link_data(newG)
+
+        ans = {}
+        ans['nodes'] = temp['nodes']
+        ans['links'] = []
+        for link in temp['links']:
+            a = {'from':link['source'], 'to':link['target']}
+            ans['links'].append(a)
+
+        print(ans)
+        return json.dumps(ans)
