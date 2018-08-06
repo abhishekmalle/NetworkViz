@@ -35,3 +35,6 @@ def func():
 
         print(ans)
         return json.dumps(ans)
+
+if __name__ == "__main__":
+    app.run(debug=True,threaded=True,port=5000)
