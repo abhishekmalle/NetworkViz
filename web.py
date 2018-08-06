@@ -15,7 +15,7 @@ app = Flask(__name__)
 def func():
 
     if request.method=='GET':
-        return 'This is the GET response - use the POST function.'
+        return render_template('index.html')
     else:
         try:
             query = json.loads(request.data)
@@ -33,7 +33,6 @@ def func():
             a = {'from':link['source'], 'to':link['target']}
             ans['links'].append(a)
 
-        print(ans)
         return json.dumps(ans)
 
 if __name__ == "__main__":
