@@ -8,8 +8,7 @@ Requirements:
 
 ### Setting up Flask Server:
 - Open up cmd prompt and navigate to "NetworkViz"
-- "set FLASK_APP=web.py"
-- "flask run -p 5000"
+- "python web.py"
 
 ### Setting up the web page:
 - navigate to "\NetworkViz\ReactNetworkViz\my-ap\build"
