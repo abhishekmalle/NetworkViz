@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as vis from "vis";
 
-<head>
-    <title>NetworkViz</title>
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" />
-</head>
-
-<body>
-    <div id="root"></div>
-    <script type="text/babel">
 class TopSide extends React.Component {
     render() {
         return(
@@ -75,10 +64,3 @@ render(){
 
 //------------------------//
 ReactDOM.render(<Root />, document.getElementById("root"));
-
-
-
-    </script>
-</body>
-
-</html>
