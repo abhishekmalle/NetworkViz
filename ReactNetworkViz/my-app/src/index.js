@@ -27,6 +27,9 @@ class Root extends React.Component{
         }).then(myJson => {
             this.setState({nodes:myJson.nodes, links:myJson.links});
         });
+
+        // nodes.label = this.statenodes.id
+
         var nodes = new vis.DataSet(this.state.nodes);
 
         // create an array with edges
@@ -38,9 +41,10 @@ class Root extends React.Component{
             nodes: nodes,
             edges: edges
         };
-        var options = {};
+        var options = {width: (window.innerWidth - 25) + "px",
+                    height: (window.innerHeight - 75) + "px"};
         var network = new vis.Network(container, data, options);
-        console.log(this.state.links)
+        console.log(this.state)
     }
 
 
